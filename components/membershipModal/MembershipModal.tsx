@@ -1,114 +1,135 @@
-'use client'
+"use client";
 
-import React, {useState, useEffect, useRef, FormEvent} from 'react'
-import Modal from '../UI/Modal';
+import React, { useState, useEffect, useRef, FormEvent } from "react";
+import Modal from "../UI/Modal";
+import IconComponent from "../UI/icons";
+import { bgColorPrimary, textColorPrimary } from "@/constants/colors";
 
-export interface MembershipData{
-    fullName: string;
-    email: string;
-    phoneNumber: string;
-    houseAddress: string;
+export interface MembershipData {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  houseAddress: string;
 }
 
 const initialMembershipData: MembershipData = {
-    fullName: '',
-    email: '',
-    phoneNumber: '',
-    houseAddress: '',
-}
+  fullName: "",
+  email: "",
+  phoneNumber: "",
+  houseAddress: "",
+};
 
 interface MembershipModalProps {
-    isOpen: boolean;
+  isOpen: boolean;
   onSubmit: (data: MembershipData) => void;
   onClose: () => void;
 }
-const MembershipModal = ({isOpen, onSubmit, onClose}: MembershipModalProps) => {
+const MembershipModal = ({
+  isOpen,
+  onSubmit,
+  onClose,
+}: MembershipModalProps) => {
+  const [formState, setFormState] = useState<MembershipData>(
+    initialMembershipData
+  );
+  const inputFocusRef = useRef<HTMLInputElement | null>(null);
 
-    const [formState, setFormState] = useState<MembershipData>(initialMembershipData)
-    const inputFocusRef = useRef<HTMLInputElement | null>(null)
-
-    useEffect(() => {
-        if (inputFocusRef.current && isOpen) {
-            setTimeout(() => {
-                inputFocusRef.current!.focus()
-            }, 0);
-        }
-    }, [isOpen])
-
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-
-        const {name, value } = event.target;
-
-        setFormState(prevFormState => ({
-            ...prevFormState,
-            [name]: value,
-        }))
+  useEffect(() => {
+    if (inputFocusRef.current && isOpen) {
+      setTimeout(() => {
+        inputFocusRef.current!.focus();
+      }, 0);
     }
+  }, [isOpen]);
 
-    const handleSubmit = (event: FormEvent): void => {
-        event.preventDefault();
-        onSubmit(formState);
-        setFormState(initialMembershipData);
-    }
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+
+    setFormState((prevFormState) => ({
+      ...prevFormState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event: FormEvent): void => {
+    event.preventDefault();
+    onSubmit(formState);
+    setFormState(initialMembershipData);
+  };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
+      <div className="mt-10 mb-20 mx-20">
+        <IconComponent />
         <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor='fullName'>Full name: </label>
-                <input
-                    type='text'
-                    id='fullName'
-                    name='fullName'
-                    placeholder='Enter the full name'
-                    value={formState.fullName}
-                    onChange={handleInputChange}
-                    required
-                />
+          <div className="mb-10">
+            <h1 className="font-bold text-3xl" style={textColorPrimary}>We are thrilled to welcome you!</h1>
+            <p>Enter your details to join our community and stay informed</p>
+          </div>
+          <div className="flex gap-10">
+            <div className="flex flex-col gap-2 mb-4 w-3/6">
+              <label htmlFor="fullName">Full name: </label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Enter the full name"
+                value={formState.fullName}
+                onChange={handleInputChange}
+                className="border-2 focus:outline-none py-1 px-4 rounded-md"
+                required
+              />
             </div>
-            <div>
-                <label htmlFor='email'>Email: </label>
-                <input
-                    type='email'
-                    id='email'
-                    name='email'
-                    placeholder='Enter the email address'
-                    value={formState.email}
-                    onChange={handleInputChange}
-                    required
-                />
+            <div className="flex flex-col gap-2 mb-4 w-3/6">
+              <label htmlFor="email">Email: </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter the email address"
+                value={formState.email}
+                onChange={handleInputChange}
+                className="border-2 focus:outline-none py-1 px-4 rounded-md"
+                required
+              />
             </div>
-            <div>
-                <label htmlFor='phoneNumber'>Phone number: </label>
-                <input
-                    type='tel'
-                    id='phoneNumber'
-                    name='phoneNumber'
-                    placeholder='Enter the phone number'
-                    value={formState.phoneNumber}
-                    onChange={handleInputChange}
-                    required
-                />
+          </div>
+          <div className="flex gap-10">
+            <div className="flex flex-col gap-2 mb-4 w-3/6">
+              <label htmlFor="phoneNumber">Phone number: </label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                placeholder="Enter the phone number"
+                value={formState.phoneNumber}
+                onChange={handleInputChange}
+                className="border-2 focus:outline-none py-1 px-4 rounded-md"
+                required
+              />
             </div>
-            <div>
-                <label htmlFor='houseAddress'>House address: </label>
-                <input
-                    type='text'
-                    id='houseAddress'
-                    name='houseAddress'
-                    placeholder='Enter the address'
-                    value={formState.houseAddress}
-                    onChange={handleInputChange}
-                    required
-                />
+            <div className="flex flex-col gap-2 mb-4 w-3/6">
+              <label htmlFor="houseAddress">House address: </label>
+              <input
+                type="text"
+                id="houseAddress"
+                name="houseAddress"
+                placeholder="Enter the address"
+                value={formState.houseAddress}
+                onChange={handleInputChange}
+                className="border-2 focus:outline-none py-1 px-4 rounded-md"
+                required
+              />
             </div>
-            <div>
-                <button onClick={onClose}>Back</button>
-                <button type='submit'>Next</button>
-            </div>
+          </div>
+          <div className="flex gap-10 mt-10 justify-end">
+            <button onClick={onClose}>Back</button>
+            <button type="submit">Next</button>
+          </div>
         </form>
+      </div>
     </Modal>
-  )
-}
+  );
+};
 
-export default MembershipModal
+export default MembershipModal;

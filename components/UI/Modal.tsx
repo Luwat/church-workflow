@@ -42,7 +42,7 @@ const Modal = ({isOpen, onClose, children}: ModalProps) => {
     }
 
   return (
-    <dialog ref={modalRef} onKeyDown={handleKeyDown}>
+    <dialog ref={modalRef} onKeyDown={handleKeyDown} className=' rounded-lg backdrop:bg-neutral-700 backdrop:bg-opacity-75'>
         {children}
     </dialog>
   )
