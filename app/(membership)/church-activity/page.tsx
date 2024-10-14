@@ -1,51 +1,49 @@
 "use client";
 
 import React, { useState } from "react";
-import MembershipModal, {
-  MembershipData,
-} from "@/components/membershipModal/MembershipModal";
+import ChurchActivityModal, { ChurchActivityData } from "@/components/membershipModal/ChurchActivityModal";
 
-const EmergencyInfoPage = () => {
-  const [isMembershipModalOpen, setIsMembershipModalOpen] =
+const ChurchActivityPage = () => {
+  const [isChurchActivityModalOpen, setIsChurchActivityModalOpen] =
     useState<boolean>(false);
-  const [membershipFormData, setMembershipFormData] =
-    useState<MembershipData | null>(null);
+  const [churchActivityFormData, setChurchActivityFormData] =
+    useState<ChurchActivityData | null>(null);
 
-  const handleOpenMembershipModal = () => {
-    setIsMembershipModalOpen(true);
+  const handleOpenChurchActivityModal = () => {
+   setIsChurchActivityModalOpen(true);
   };
 
-  const handleCloseMembershipModal = () => {
-    setIsMembershipModalOpen(false);
+  const handleCloseChurchActivityModal = () => {
+    setIsChurchActivityModalOpen(false);
   };
   
   const successMessage = (
     <div>
-      Welcome {membershipFormData?.fullName}, click the next button to proceed.
+      Welcome member, click the next button to proceed.
     </div>
   );
-  const handleMembershipFormSubmit = (data: MembershipData): void => {
-    setMembershipFormData(data);
+  const handleChurchActivityFormSubmit = (data: ChurchActivityData): void => {
+    setChurchActivityFormData(data);
     setTimeout(() => successMessage, 2000);
-    handleCloseMembershipModal();
+    handleCloseChurchActivityModal();
   };
 
 
   return (
     <section>
       <div>
-        <button onClick={handleOpenMembershipModal}>Join us</button>
+        <button onClick={handleOpenChurchActivityModal}>Join us</button>
       </div>
 
-      {membershipFormData && membershipFormData.fullName && 
+      {churchActivityFormData && churchActivityFormData.membershipStatus && 
       successMessage}
-      <MembershipModal
-        isOpen={isMembershipModalOpen}
-        onSubmit={handleMembershipFormSubmit}
-        onClose={handleCloseMembershipModal}
+      <ChurchActivityModal
+        isOpen={isChurchActivityModalOpen}
+        onSubmit={handleChurchActivityFormSubmit}
+        onClose={handleCloseChurchActivityModal}
       />
     </section>
   );
 };
 
-export default EmergencyInfoPage;
+export default ChurchActivityPage;
