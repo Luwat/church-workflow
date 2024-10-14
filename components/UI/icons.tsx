@@ -30,7 +30,7 @@ const IconComponent = () => {
         <TbUsersGroup size={20} color={primary} />
       </Link>
       <div className="border-r-2 h-6" />
-      <Link href={""} className="flex justify-center pr-3 gap-3">
+      <Link href={"/emergency-info"} className="flex justify-center pr-3 gap-3">
         <div
           className={`flex justify-center items-center w-8 h-8 rounded-full bg-[#0c5fb3]`}
         >

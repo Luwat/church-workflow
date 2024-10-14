@@ -8,7 +8,7 @@ export default function Home() {
       <Link href="/reset-password">Go to reset page</Link>
       </p>
       <p>
-        <Link href="/membership">Go to membership page</Link>
+        <Link href="/emergency-info">Go to membership page</Link>
       </p>
     </main>
   );
