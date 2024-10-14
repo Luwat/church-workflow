@@ -8,21 +8,42 @@ import { primary } from "@/constants/colors";
 
 const IconComponent = () => {
   return (
-    <section className="flex justify-center w-full gap-10 mb-10 border-2 rounded-md px-4 py-3">
-      <Link href={""} className="">
-        <BiUserPin size={28} color={primary} />
+    <section className="flex justify-around items-center w-full mb-10 border-[1px] shadow-sm sha rounded-md px-4 py-2">
+      <Link
+        href={""}
+        className="flex justify-center items-center w-8 h-8 rounded-full bg-[#E7EFF7]"
+      >
+        <BiUserPin size={20} color={primary} />
       </Link>
-      <Link href={""}>
-        <TbUsersGroup size={28} color={primary} />
+      <div className="border-r-2 h-6" />
+      <Link
+        href={""}
+        className="flex justify-center items-center w-8 h-8 rounded-full bg-[#E7EFF7]"
+      >
+        <RiContactsBook2Line size={20} color={primary} />
       </Link>
-      <Link href={""}>
-        <RiContactsBook2Line size={28} color={primary} />
+      <div className="border-r-2 h-6" />
+      <Link
+        href={""}
+        className="flex justify-center items-center w-8 h-8 rounded-full bg-[#E7EFF7]"
+      >
+        <TbUsersGroup size={20} color={primary} />
       </Link>
-      <Link href={""}>
-        <BsBrightnessAltHigh size={28} color={primary} />
+      <div className="border-r-2 h-6" />
+      <Link href={""} className="flex justify-center pr-3 gap-3">
+        <div
+          className={`flex justify-center items-center w-8 h-8 rounded-full bg-[#0c5fb3]`}
+        >
+          <BsBrightnessAltHigh size={20} color={"white"} />
+        </div>
+        <div className="font-semibold">
+          <p>Step 4/5</p>
+          <p className="text-[0.95rem] text-[#0c5fb3] mt-1">Emergency Info</p>
+        </div>
       </Link>
-      <Link href={""}>
-        <PiCrossThin size={28} color={primary} />
+      <div className="border-r-2 h-6" />
+      <Link href={""} className={`flex justify-center items-center w-8 h-8`}>
+        <PiCrossThin size={20} color={primary} />
       </Link>
     </section>
   );

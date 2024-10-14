@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, FormEvent } from "react";
 import Modal from "../UI/Modal";
 import IconComponent from "../UI/icons";
-import { bgColorPrimary, textColorPrimary } from "@/constants/colors";
+import { textColorPrimary } from "@/constants/colors";
 
 export interface MembershipData {
   fullName: string;
@@ -59,11 +59,11 @@ const MembershipModal = ({
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="mt-10 mb-20 mx-20">
+      <div className="mt-10 text-xs font-bold">
         <IconComponent />
         <form onSubmit={handleSubmit}>
-          <div className="mb-10">
-            <h1 className="font-bold text-3xl" style={textColorPrimary}>We are thrilled to welcome you!</h1>
+          <div className="mb-5">
+            <h1 className="font-bold text-2xl" style={textColorPrimary}>We are thrilled to welcome you!</h1>
             <p>Enter your details to join our community and stay informed</p>
           </div>
           <div className="flex gap-10">
@@ -76,7 +76,7 @@ const MembershipModal = ({
                 placeholder="Enter the full name"
                 value={formState.fullName}
                 onChange={handleInputChange}
-                className="border-2 focus:outline-none py-1 px-4 rounded-md"
+                className="border-2 focus:outline-none py-2 px-4 rounded-md"
                 required
               />
             </div>
@@ -89,7 +89,7 @@ const MembershipModal = ({
                 placeholder="Enter the email address"
                 value={formState.email}
                 onChange={handleInputChange}
-                className="border-2 focus:outline-none py-1 px-4 rounded-md"
+                className="border-2 focus:outline-none py-2 px-4 rounded-md"
                 required
               />
             </div>
@@ -104,7 +104,7 @@ const MembershipModal = ({
                 placeholder="Enter the phone number"
                 value={formState.phoneNumber}
                 onChange={handleInputChange}
-                className="border-2 focus:outline-none py-1 px-4 rounded-md"
+                className="border-2 focus:outline-none py-2 px-4 rounded-md"
                 required
               />
             </div>
@@ -117,14 +117,14 @@ const MembershipModal = ({
                 placeholder="Enter the address"
                 value={formState.houseAddress}
                 onChange={handleInputChange}
-                className="border-2 focus:outline-none py-1 px-4 rounded-md"
+                className="border-2 focus:outline-none py-2 px-4 rounded-md"
                 required
               />
             </div>
           </div>
-          <div className="flex gap-10 mt-10 justify-end">
-            <button onClick={onClose}>Back</button>
-            <button type="submit">Next</button>
+          <div className="flex gap-6 mt-10 justify-end">
+            <button onClick={onClose} className="w-28 py-2 border-2 text-[#0C5FB3] border-[#0C5FB3] rounded-lg">Back</button>
+            <button type="submit" className="w-28 py-2 border-2 text-white bg-[#0C5FB3] border-[#0C5FB3] rounded-lg">Next step</button>
           </div>
         </form>
       </div>
