@@ -12,6 +12,7 @@ const ErrorPage = ({
   return (
     <div className='w-screen h-screen flex flex-col justify-center items-center'>
         <h2>Something went wrong</h2>
+        <p>{error.message}</p>
         <button onClick={() => reset()}>Try again</button>
     </div>
   )
