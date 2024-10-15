@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import MembershipModal, {
   MembershipData,
-} from "@/components/membershipModal/MembershipModal";
+} from "@/components/membership-modal/MembershipModal";
 
 const EmergencyInfoPage = () => {
   const [isMembershipModalOpen, setIsMembershipModalOpen] =

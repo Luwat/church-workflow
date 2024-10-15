@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import ChurchActivityModal, { ChurchActivityData } from "@/components/membershipModal/ChurchActivityModal";
+import ChurchActivityModal, { ChurchActivityData } from "@/components/membership-modal/ChurchActivityModal";
 
 const ChurchActivityPage = () => {
   const [isChurchActivityModalOpen, setIsChurchActivityModalOpen] =
