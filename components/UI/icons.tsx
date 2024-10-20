@@ -6,7 +6,7 @@ import { RiContactsBook2Line } from "react-icons/ri";
 import { BsBrightnessAltHigh } from "react-icons/bs";
 import { PiCrossThin } from "react-icons/pi";
 import Link from "next/link";
-import { primary } from "@/constants/colors";
+import { primary } from "@/lib/constants/colors";
 import { usePathname } from "next/navigation";
 
 const IconComponent = () => {

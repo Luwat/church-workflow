@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, FormEvent } from "react";
 import Modal from "../UI/Modal";
 import IconComponent from "../UI/icons";
-import { textColorPrimary } from "@/constants/colors";
+import { textColorPrimary } from "@/lib/constants/colors";
 
 export interface MembershipData {
   fullName: string;

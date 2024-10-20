@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, FormEvent } from "react";
 import Modal from "../UI/Modal";
 import IconComponent from "../UI/icons";
-import { textColorPrimary } from "@/constants/colors";
+import { textColorPrimary } from "@/lib/constants/colors";
 
 export interface ChurchActivityData {
   membershipStatus: string;
@@ -133,12 +133,13 @@ const ChurchActivityModal = ({
           </div>
           <div className="flex gap-5">
             <div className="flex flex-col gap-1 mb-3 w-3/6">
-              <label htmlFor="ministryDepartment">Ministry involved in </label>
+              <label htmlFor="ministryDepartment">Ministries involved in </label>
               <select
                 name="ministryDepartment"
                 id="ministryDepartment"
                 className="border-2 focus:outline-none py-2 px-4 rounded-md"
-                required
+                multiple
+                size={1}
               >
                 <option value="">e.g.. Choir, Usher or none</option>
                 <option value="Choir">Choir</option>

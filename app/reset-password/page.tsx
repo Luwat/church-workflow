@@ -1,34 +1,12 @@
 import Image from "next/image";
-import { images } from "@/constants/images";
+import { images } from "@/lib/constants/images";
+import ResetPasswordForm from "@/components/forms/ResetPasswordForm";
 
 const Page = () => {
   return (
     <main className="w-screen h-screen p-3">
       <section className="flex items-center justify-center h-full w-full">
-        <div className="w-3/6 flex flex-col items-center gap-10">
-          <div className="w-2/3">
-            <div className="font-bold text-3xl">Forgot password</div>
-            <p>Enter your email to reset your password</p>
-          </div>
-          <div className="w-2/3">
-            <label htmlFor="Email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter your email address"
-              className="border-solid border-[1px] focus:outline-blue-500 border-blue-500 rounded-md py-2 px-4 w-full"
-            />
-          </div>
-          <div className="w-2/3">
-            <button
-              type="submit"
-              className="bg-blue-800 text-blue-50 w-full py-2 px-4 rounded-md"
-            >
-              Continue
-            </button>
-          </div>
-        </div>
+        <ResetPasswordForm />
         <div
           style={{
             background: `url(${images.forgotPassword.src})`,
