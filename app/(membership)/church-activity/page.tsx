@@ -1,7 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import ChurchActivityModal, { ChurchActivityData } from "@/components/membership-modal/ChurchActivityModal";
+import ChurchActivityModal, {
+  ChurchActivityData,
+} from "@/components/membership-modal/ChurchActivityModal";
+import OpenModalButton from "@/components/membership-modal/OpenModalButton";
 
 const ChurchActivityPage = () => {
   const [isChurchActivityModalOpen, setIsChurchActivityModalOpen] =
@@ -10,17 +13,15 @@ const ChurchActivityPage = () => {
     useState<ChurchActivityData | null>(null);
 
   const handleOpenChurchActivityModal = () => {
-   setIsChurchActivityModalOpen(true);
+    setIsChurchActivityModalOpen(true);
   };
 
   const handleCloseChurchActivityModal = () => {
     setIsChurchActivityModalOpen(false);
   };
-  
+
   const successMessage = (
-    <div>
-      Welcome member, click the next button to proceed.
-    </div>
+    <div>Welcome member, click the next button to proceed.</div>
   );
   const handleChurchActivityFormSubmit = (data: ChurchActivityData): void => {
     setChurchActivityFormData(data);
@@ -28,15 +29,12 @@ const ChurchActivityPage = () => {
     handleCloseChurchActivityModal();
   };
 
-
   return (
     <section>
-      <div>
-        <button onClick={handleOpenChurchActivityModal}>Join us</button>
-      </div>
-
-      {churchActivityFormData && churchActivityFormData.membershipStatus && 
-      successMessage}
+      <OpenModalButton onOpenModal={handleOpenChurchActivityModal} />
+      {churchActivityFormData &&
+        churchActivityFormData.membershipStatus &&
+        successMessage}
       <ChurchActivityModal
         isOpen={isChurchActivityModalOpen}
         onSubmit={handleChurchActivityFormSubmit}

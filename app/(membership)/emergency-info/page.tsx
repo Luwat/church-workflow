@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import MembershipModal, {
   MembershipData,
 } from "@/components/membership-modal/MembershipModal";
+import OpenModalButton from "@/components/membership-modal/OpenModalButton";
 
 const EmergencyInfoPage = () => {
   const [isMembershipModalOpen, setIsMembershipModalOpen] =
@@ -33,10 +34,7 @@ const EmergencyInfoPage = () => {
 
   return (
     <section>
-      <div>
-        <button onClick={handleOpenMembershipModal}>Join us</button>
-      </div>
-
+      <OpenModalButton onOpenModal={handleOpenMembershipModal}/>
       {membershipFormData && membershipFormData.fullName && 
       successMessage}
       <MembershipModal
